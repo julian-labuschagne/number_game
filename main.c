@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdlib.h>
 #include <string.h>
 
 // Declare functions
@@ -50,8 +51,8 @@ void get_input() {
 int is_valid_number() {
 
   char *ptr;
-  long number;
-  number = strtol(text_input, &ptr, 10);
+  
+  strtol(text_input, &ptr, 10);
   
   if (strlen(ptr) == 0) {
     return 0;
