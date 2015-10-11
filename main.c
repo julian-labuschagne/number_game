@@ -3,6 +3,7 @@
 
 // Declare functions
 void get_input();
+int is_valid_number();
 
 // Global variables
 char text_input[32];
@@ -18,7 +19,9 @@ int main() {
     }
     else {
       get_input();
-      printf("The message is %s\n", text_input);
+      if(is_valid_number() == 0) {
+        printf("The message is %s\n", text_input);
+      }
     }
   }
 
@@ -40,4 +43,21 @@ void get_input() {
   if (text_input[length] == '\n') {
     text_input[length] = '\0';
   }
+
+}
+
+// Check if string is a valid number
+int is_valid_number() {
+
+  char *ptr;
+  long number;
+  number = strtol(text_input, &ptr, 10);
+  
+  if (strlen(ptr) == 0) {
+    return 0;
+  } else {
+    printf("Not a valid number\n");
+    return 1;
+  }
+
 }
