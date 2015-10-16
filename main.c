@@ -5,10 +5,12 @@
 // Declare functions
 void get_input();
 int is_valid_number();
+int get_random_number();
 
 // Global variables
 char text_input[32];
 int running = 1;
+int number_range = 10;
 
 // Main Section
 int main() {
@@ -21,7 +23,11 @@ int main() {
     else {
       get_input();
       if(is_valid_number() == 0) {
-        printf("The message is %s\n", text_input);
+        int guess;
+        guess = get_random_number();
+
+        printf("Your guess was %s\n", text_input);
+        printf("The number was %d\n", guess);
       }
     }
   }
@@ -61,4 +67,9 @@ int is_valid_number() {
     return 1;
   }
 
+}
+
+// Get random number
+int get_random_number() {
+   return rand() % number_range + 1;
 }
